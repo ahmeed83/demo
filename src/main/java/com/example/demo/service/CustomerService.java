@@ -21,6 +21,7 @@ public class CustomerService {
         List<CustomerDto> customerDtos = new ArrayList<>();
         customerRepository.findAll().forEach(customerEntity ->
                 customerDtos.add(CustomerDto.builder()
+                        .customerId(customerEntity.getId())
                         .firstName(customerEntity.getFirstName()).lastName(customerEntity.getLastName())
                         .age(customerEntity.getAge()).address(customerEntity.getAddress())
                         .build()));
